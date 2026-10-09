@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Acme Guides | Practical how-to guides</title>
+<meta name="description" content="Short, tested how-to guides for everyday tech chores: laptop backups, useful READMEs and two-factor sign-in.">
+<link rel="canonical" href="https://acme-guides.example/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Acme Guides">
+<meta property="og:title" content="Acme Guides | Practical how-to guides">
+<meta property="og:description" content="Short, tested how-to guides for everyday tech chores: laptop backups, useful READMEs and two-factor sign-in.">
+<meta property="og:url" content="https://acme-guides.example/">
+<meta property="og:image" content="https://acme-guides.example/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Acme Guides">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://acme-guides.example/og.png">
+<meta name="theme-color" content="#f7f7f5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111113" media="(prefers-color-scheme: dark)">
+<link rel="alternate" type="text/markdown" href="/index.md" title="Markdown version">
+<link rel="ai-catalog" href="/.well-known/ai-catalog.json">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://acme-guides.example/#website",
+   "name": "Acme Guides",
+   "url": "https://acme-guides.example/",
+   "inLanguage": "en",
+   "description": "A small library of practical how-to guides: short, tested steps for everyday tech chores.",
+   "publisher": {
+    "@id": "https://acme-guides.example/#org"
+   }
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://acme-guides.example/#org",
+   "name": "Acme Guides",
+   "url": "https://acme-guides.example/",
+   "logo": "https://acme-guides.example/favicon.svg",
+   "description": "Publishes short, tested how-to guides for everyday tech chores.",
+   "email": "hello@acme-guides.example",
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "email": "hello@acme-guides.example",
+    "url": "https://acme-guides.example/contact",
+    "availableLanguage": "English"
+   },
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "123 Example Street",
+    "addressLocality": "Springfield",
+    "addressRegion": "OR",
+    "postalCode": "97477",
+    "addressCountry": "US"
+   }
+  },
+  {
+   "@type": "Article",
+   "@id": "https://acme-guides.example/#guides",
+   "headline": "Acme Guides: practical how-to guides",
+   "description": "Short, tested steps for backups, READMEs and two-factor sign-in.",
+   "url": "https://acme-guides.example/",
+   "inLanguage": "en",
+   "isPartOf": {
+    "@id": "https://acme-guides.example/#website"
+   },
+   "publisher": {
+    "@id": "https://acme-guides.example/#org"
+   },
+   "encoding": {
+    "@type": "MediaObject",
+    "encodingFormat": "text/markdown",
+    "contentUrl": "https://acme-guides.example/index.md"
+   }
+  },
+  {
+   "@type": "ItemList",
+   "@id": "https://acme-guides.example/#list",
+   "name": "Guides",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Back up a laptop in fifteen minutes",
+     "url": "https://acme-guides.example/#laptop-backup"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Write a README people actually read",
+     "url": "https://acme-guides.example/#useful-readme"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Turn on two-factor sign-in everywhere that matters",
+     "url": "https://acme-guides.example/#two-factor"
+    }
+   ]
+  },
+  {
+   "@type": "WebAPI",
+   "@id": "https://acme-guides.example/#api",
+   "name": "Acme Guides API",
+   "description": "Read-only JSON API. No authentication.",
+   "documentation": "https://acme-guides.example/docs/api",
+   "url": "https://acme-guides.example/api/v1",
+   "isAccessibleForFree": true
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<a class="brand" href="/"><img src="/favicon.svg" alt="" width="28" height="28">Acme Guides</a>
+<nav aria-label="Site"><a href="/" aria-current="page">Guides</a><a href="/docs/api">API</a><a href="/about">About</a><a href="/contact">Contact</a></nav>
+</div></header>
+<main><div class="wrap">
+<p class="eyebrow">How-to guides</p>
+<h1>Short guides for everyday tech chores</h1>
+<p class="lede">Each guide is a handful of tested steps you can finish in one sitting. No fluff, no sign-up.</p>
+
+<h2>Guides</h2>
+<ul class="guides">
+<li class="guide" id="laptop-backup" data-slug="laptop-backup">
+<h3>Back up a laptop in fifteen minutes</h3>
+<p>Set up one automatic local backup and one off-site copy, then prove you can restore a file.</p>
+<ol><li>Plug in an external drive at least twice the size of your used disk space.</li><li>Turn on the built-in backup tool (Time Machine on macOS, File History on Windows) and point it at the drive.</li><li>Pick one cloud service for an off-site copy of your documents folder.</li><li>Wait for the first backup to finish, then restore one file to a new folder to prove it works.</li><li>Put a monthly reminder on your calendar to check that both backups are still running.</li></ol>
+</li>
+<li class="guide" id="useful-readme" data-slug="useful-readme">
+<h3>Write a README people actually read</h3>
+<p>Lead with what the project does and how to run it, then get out of the way.</p>
+<ol><li>Open with one sentence that says what the project does and who it is for.</li><li>Add a quick start: the exact commands to install and run it, copied from a clean machine.</li><li>Show one real example of input and output.</li><li>List the configuration options that most people will need, and link to the rest.</li><li>End with how to get help and how to contribute.</li></ol>
+</li>
+<li class="guide" id="two-factor" data-slug="two-factor">
+<h3>Turn on two-factor sign-in everywhere that matters</h3>
+<p>Protect email, banking and your password manager first, using an authenticator app or a security key.</p>
+<ol><li>List the accounts that could reset other accounts: email first, then your password manager, bank and phone carrier.</li><li>Install an authenticator app, or buy two hardware security keys.</li><li>Turn on two-factor sign-in for each account on the list, starting with email.</li><li>Save the recovery codes somewhere offline, like a printed sheet in a drawer.</li><li>Remove SMS as a fallback wherever an app or key is available.</li></ol>
+</li>
+</ul>
+
+<h2 id="agents">For AI agents</h2>
+<p>Everything on this page is also available to agents, with no key needed.</p>
+<ul class="agents">
+<li><a href="/index.md"><strong>Markdown</strong><span>This page as Markdown. Or send <code>Accept: text/markdown</code> to <code>/</code>.</span></a></li>
+<li><a href="/docs/api"><strong>JSON API</strong><span>Versioned, read-only, with an OpenAPI description.</span></a></li>
+<li><a href="/.well-known/mcp/server-card.json"><strong>MCP server</strong><span>Streamable HTTP at <code>/mcp</code>: list and fetch guides.</span></a></li>
+<li><a href="/llms.txt"><strong>llms.txt</strong><span>When to use this site and where everything lives.</span></a></li>
+</ul>
+</div></main>
+<footer><div class="wrap">
+<a href="/">Guides</a>
+<a href="/docs/api">API docs</a>
+<a href="/index.md">Markdown version</a>
+<a href="/about">About</a>
+<a href="/contact">Contact</a>
+<a href="/privacy">Privacy</a>
+</div></footer>
+<script>
+// WebMCP: expose this page's guides to in-browser AI agents.
+(function () {
+  var mc = document.modelContext || navigator.modelContext;
+  if (!mc || typeof mc.registerTool !== "function") return;
+  var reg = function (tool) {
+    try { var p = mc.registerTool(tool); if (p && typeof p.catch === "function") p.catch(function () {}); } catch (e) {}
+  };
+  var reply = function (text) { return { content: [{ type: "text", text: text }] }; };
+  var read = function (el) {
+    var steps = [];
+    el.querySelectorAll("ol li").forEach(function (li, i) { steps.push((i + 1) + ". " + li.textContent); });
+    return "# " + el.querySelector("h3").textContent + "\n\n" + el.querySelector("p").textContent + "\n\n" + steps.join("\n");
+  };
+  reg({
+    name: "list_guides",
+    description: "List the how-to guides on this page with their slugs and summaries.",
+    inputSchema: { type: "object", properties: {} },
+    annotations: { readOnlyHint: true },
+    execute: function () {
+      var out = [];
+      document.querySelectorAll(".guide").forEach(function (g) {
+        out.push(g.dataset.slug + ": " + g.querySelector("h3").textContent + ". " + g.querySelector("p").textContent);
+      });
+      return reply(out.join("\n"));
+    }
+  });
+  reg({
+    name: "get_guide",
+    description: "Get one guide from this page by slug, with its steps.",
+    inputSchema: { type: "object", properties: { slug: { type: "string", description: "The guide's slug, from list_guides." } }, required: ["slug"] },
+    annotations: { readOnlyHint: true },
+    execute: function (args) {
+      var el = document.querySelector('.guide[data-slug="' + String((args && args.slug) || "").replace(/["\\]/g, "") + '"]');
+      return reply(el ? read(el) : "No guide with that slug. Call list_guides first.");
+    }
+  });
+})();
+</script>
+</body>
+</html>

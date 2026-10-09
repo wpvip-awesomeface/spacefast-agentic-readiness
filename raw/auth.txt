@@ -1,0 +1,49 @@
+# Acme Guides auth.md
+
+Agent registration for https://acme-guides.example. Sign-up is real, instant and free, but optional: every resource on this site is public, so the key you get unlocks nothing extra.
+
+## Audience
+
+Any AI agent, crawler or script.
+
+## Registration
+
+- **Register URI:** `POST https://acme-guides.example/agent/auth`
+- **Request body:** none required.
+- **Response:** `201` with JSON containing `api_key`, `identity_type`, `credential_type` and `token_type`.
+
+```bash
+curl -X POST https://acme-guides.example/agent/auth
+```
+
+## Supported identity types
+
+- **anonymous**: no identity, email or account is collected.
+
+## Credential types
+
+- **api_key**: a random key starting with `anon_`. Send it as `Authorization: Bearer <api_key>`, or skip it. Every endpoint answers the same either way.
+
+## OAuth 2.0
+
+Prefer OAuth? It works too, and its tokens also unlock nothing extra.
+
+- Metadata: https://acme-guides.example/.well-known/oauth-authorization-server
+- `client_credentials`: `POST https://acme-guides.example/oauth/token` with `grant_type=client_credentials`.
+- `authorization_code` with PKCE (S256): send the user to https://acme-guides.example/oauth/authorize, then exchange the code at https://acme-guides.example/oauth/token.
+- Tokens are opaque, so the key set at https://acme-guides.example/.well-known/jwks.json is empty.
+
+## Claim and revocation
+
+- **Claim:** not needed. The key works as soon as it is returned.
+- **Revocation:** keys are never stored, so discard the key to revoke it.
+
+## What you can reach
+
+Everything, with or without a key:
+
+- Homepage: https://acme-guides.example/
+- Site as Markdown: https://acme-guides.example/index.md
+- JSON API: https://acme-guides.example/api/v1 (OpenAPI: https://acme-guides.example/api/openapi.json)
+- MCP server (Streamable HTTP): https://acme-guides.example/mcp (card: https://acme-guides.example/.well-known/mcp/server-card.json)
+- Agent skill: https://acme-guides.example/.well-known/agent-skills/acme-guides/SKILL.md

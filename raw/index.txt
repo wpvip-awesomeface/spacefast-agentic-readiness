@@ -1,0 +1,44 @@
+# Acme Guides
+
+> A small library of practical how-to guides: short, tested steps for everyday tech chores.
+
+Canonical page: https://acme-guides.example/
+
+## Guides
+
+### Back up a laptop in fifteen minutes
+
+Set up one automatic local backup and one off-site copy, then prove you can restore a file.
+
+1. Plug in an external drive at least twice the size of your used disk space.
+2. Turn on the built-in backup tool (Time Machine on macOS, File History on Windows) and point it at the drive.
+3. Pick one cloud service for an off-site copy of your documents folder.
+4. Wait for the first backup to finish, then restore one file to a new folder to prove it works.
+5. Put a monthly reminder on your calendar to check that both backups are still running.
+
+### Write a README people actually read
+
+Lead with what the project does and how to run it, then get out of the way.
+
+1. Open with one sentence that says what the project does and who it is for.
+2. Add a quick start: the exact commands to install and run it, copied from a clean machine.
+3. Show one real example of input and output.
+4. List the configuration options that most people will need, and link to the rest.
+5. End with how to get help and how to contribute.
+
+### Turn on two-factor sign-in everywhere that matters
+
+Protect email, banking and your password manager first, using an authenticator app or a security key.
+
+1. List the accounts that could reset other accounts: email first, then your password manager, bank and phone carrier.
+2. Install an authenticator app, or buy two hardware security keys.
+3. Turn on two-factor sign-in for each account on the list, starting with email.
+4. Save the recovery codes somewhere offline, like a printed sheet in a drawer.
+5. Remove SMS as a fallback wherever an app or key is available.
+
+## For agents
+
+- JSON API: https://acme-guides.example/api/v1 (OpenAPI: https://acme-guides.example/api/openapi.json)
+- MCP server (Streamable HTTP, no auth): https://acme-guides.example/mcp
+- llms.txt: https://acme-guides.example/llms.txt
+- About: https://acme-guides.example/about · Contact: https://acme-guides.example/contact · Privacy: https://acme-guides.example/privacy

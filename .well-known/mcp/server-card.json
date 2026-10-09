@@ -1,0 +1,35 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/mcp-server-card/v1.json",
+  "version": "1.0",
+  "protocolVersion": "2025-06-18",
+  "serverInfo": {
+    "name": "acme-guides",
+    "title": "Acme Guides",
+    "version": "1.0.0"
+  },
+  "description": "Read-only tools for Acme Guides: list the guides and fetch one with its steps.",
+  "documentationUrl": "https://acme-guides.example/docs/api",
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "https://acme-guides.example/mcp"
+  },
+  "capabilities": {
+    "tools": {
+      "listChanged": false
+    }
+  },
+  "authentication": {
+    "required": false,
+    "schemes": []
+  },
+  "tools": [
+    {
+      "name": "list_guides",
+      "description": "List every guide with its slug and summary."
+    },
+    {
+      "name": "get_guide",
+      "description": "Get one guide by slug, with its steps."
+    }
+  ]
+}

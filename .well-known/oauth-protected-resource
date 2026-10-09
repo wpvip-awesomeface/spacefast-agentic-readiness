@@ -1,0 +1,12 @@
+{
+  "resource": "https://acme-guides.example/",
+  "resource_name": "Acme Guides",
+  "resource_documentation": "https://acme-guides.example/auth.md",
+  "authorization_servers": [
+    "https://acme-guides.example"
+  ],
+  "scopes_supported": [],
+  "bearer_methods_supported": [
+    "header"
+  ]
+}

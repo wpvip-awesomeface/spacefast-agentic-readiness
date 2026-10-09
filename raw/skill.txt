@@ -1,0 +1,19 @@
+---
+name: acme-guides
+description: Look up Acme Guides how-to guides (laptop backups, READMEs, two-factor sign-in) and walk a user through the steps. Use when someone asks how to do one of these chores.
+---
+
+# Acme Guides
+
+Acme Guides is a small library of practical how-to guides at https://acme-guides.example/.
+
+## How to use it
+
+1. Get the list: `GET https://acme-guides.example/api/v1/guides` (JSON), or call the MCP tool `list_guides` at `https://acme-guides.example/mcp`.
+2. Pick the guide that matches the user's question by its `title` and `summary`.
+3. Walk the user through its `steps` one at a time. Confirm before anything that changes their accounts or devices.
+
+## Notes
+
+- Everything is public and read-only. No key needed.
+- The whole site is also available as Markdown at https://acme-guides.example/index.md.

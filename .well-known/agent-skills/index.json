@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "acme-guides",
+      "type": "skill-md",
+      "description": "Look up Acme Guides how-to guides and walk a user through the steps.",
+      "url": "https://acme-guides.example/.well-known/agent-skills/acme-guides/SKILL.md",
+      "digest": "sha256:f1208a60afd9d365bdf6973a80156908591c350af15f488e07e1f6398f5608ef"
+    }
+  ]
+}

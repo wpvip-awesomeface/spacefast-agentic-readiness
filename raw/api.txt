@@ -1,0 +1,61 @@
+# Acme Guides API
+
+Read-only JSON API for [Acme Guides](https://acme-guides.example/). No authentication, CORS open, `GET` only.
+
+| Endpoint | Returns |
+| --- | --- |
+| `GET /api/v1` | Index of endpoints |
+| `GET /api/v1/guides` | Every guide with its steps |
+| `GET /api/v1/health` | `{"status":"ok"}` |
+
+OpenAPI: https://acme-guides.example/api/openapi.json
+
+## Versioning
+
+The API is versioned in the URL path. `/api/v1` is the current, stable version, and every response carries `API-Version: v1`. The unversioned paths (`/api/guides` and so on) are aliases of v1.
+
+If a breaking change is ever needed, it ships under a new path (`/api/v2`). v1 keeps working for at least 90 days after that, and its responses announce the date with `Deprecation` and `Sunset` headers. Additive changes, like a new field, can land in v1 at any time, so ignore fields you don't recognize.
+
+## Rate limits
+
+Every API response describes the policy:
+
+```
+RateLimit-Policy: "burst";q=20;w=1
+X-RateLimit-Limit: 20
+```
+
+Over the limit you get `429 Too Many Requests`. Wait a few seconds and retry with exponential backoff. The data changes rarely, so caching responses on your side is the easiest way to stay under the limit.
+
+## Errors
+
+Unknown API paths return `404` with an [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457) problem details body (`Content-Type: application/problem+json`):
+
+```json
+{
+  "type": "https://acme-guides.example/docs/api#errors",
+  "title": "Not Found",
+  "status": 404,
+  "code": "endpoint_not_found",
+  "detail": "No API endpoint exists at /api/v1/nope.",
+  "instance": "/api/v1/nope",
+  "hint": "List the endpoints with GET /api/v1, or read /api/openapi.json."
+}
+```
+
+| `code` | Meaning | What to do |
+| --- | --- | --- |
+| `endpoint_not_found` | No endpoint at this `/api` path | Call `GET /api/v1` for the list |
+| `page_not_found` | No page at this path (sent when you ask for JSON) | Start from `/llms.txt` or `/index.md` |
+
+Other unknown pages return `404` as Markdown when you send `Accept: text/markdown`, and as HTML otherwise.
+
+## MCP
+
+The same data is available as tools over MCP (Streamable HTTP, no auth) at `https://acme-guides.example/mcp`: `list_guides` and `get_guide`. Server card: https://acme-guides.example/.well-known/mcp/server-card.json
+
+## Example
+
+```bash
+curl https://acme-guides.example/api/v1/guides
+```

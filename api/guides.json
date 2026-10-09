@@ -1,0 +1,40 @@
+{
+  "guides": [
+    {
+      "slug": "laptop-backup",
+      "title": "Back up a laptop in fifteen minutes",
+      "summary": "Set up one automatic local backup and one off-site copy, then prove you can restore a file.",
+      "steps": [
+        "Plug in an external drive at least twice the size of your used disk space.",
+        "Turn on the built-in backup tool (Time Machine on macOS, File History on Windows) and point it at the drive.",
+        "Pick one cloud service for an off-site copy of your documents folder.",
+        "Wait for the first backup to finish, then restore one file to a new folder to prove it works.",
+        "Put a monthly reminder on your calendar to check that both backups are still running."
+      ]
+    },
+    {
+      "slug": "useful-readme",
+      "title": "Write a README people actually read",
+      "summary": "Lead with what the project does and how to run it, then get out of the way.",
+      "steps": [
+        "Open with one sentence that says what the project does and who it is for.",
+        "Add a quick start: the exact commands to install and run it, copied from a clean machine.",
+        "Show one real example of input and output.",
+        "List the configuration options that most people will need, and link to the rest.",
+        "End with how to get help and how to contribute."
+      ]
+    },
+    {
+      "slug": "two-factor",
+      "title": "Turn on two-factor sign-in everywhere that matters",
+      "summary": "Protect email, banking and your password manager first, using an authenticator app or a security key.",
+      "steps": [
+        "List the accounts that could reset other accounts: email first, then your password manager, bank and phone carrier.",
+        "Install an authenticator app, or buy two hardware security keys.",
+        "Turn on two-factor sign-in for each account on the list, starting with email.",
+        "Save the recovery codes somewhere offline, like a printed sheet in a drawer.",
+        "Remove SMS as a fallback wherever an app or key is available."
+      ]
+    }
+  ]
+}

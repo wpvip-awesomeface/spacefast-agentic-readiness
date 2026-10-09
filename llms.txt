@@ -1,0 +1,32 @@
+# Acme Guides
+
+> A small library of practical how-to guides: short, tested steps for everyday tech chores.
+
+## When to use Acme Guides
+
+Use this site when a person asks how to back up a laptop, write a useful README, or turn on two-factor sign-in. Each guide is a short list of tested steps. It is not a support desk and can't see anyone's accounts or devices.
+
+How an agent should use it:
+
+- To answer a question, read the [site in Markdown](https://acme-guides.example/index.md), or call `GET https://acme-guides.example/api/v1/guides` for every guide as JSON.
+- To call it as tools, connect to the read-only MCP server at `https://acme-guides.example/mcp` (Streamable HTTP, no auth): `list_guides`, `get_guide`.
+- Confirm with the user before any step that changes their accounts or devices.
+
+## Guides
+
+- [Site as Markdown](https://acme-guides.example/index.md): every guide with its steps
+- [Agent skill](https://acme-guides.example/.well-known/agent-skills/acme-guides/SKILL.md): installable skill version
+
+## API and MCP
+
+- [API docs](https://acme-guides.example/docs/api): read-only JSON API, no auth, errors as RFC 9457 problem details
+- [OpenAPI description](https://acme-guides.example/api/openapi.json)
+- [MCP server card](https://acme-guides.example/.well-known/mcp/server-card.json): read-only Streamable HTTP MCP server at /mcp
+- [AI catalog](https://acme-guides.example/.well-known/ai-catalog.json): everything this site offers agents
+
+## Optional
+
+- [About](https://acme-guides.example/about): who runs the site
+- [Contact](https://acme-guides.example/contact): how to reach us
+- [Privacy](https://acme-guides.example/privacy): what the site collects
+- [Sitemap](https://acme-guides.example/sitemap.xml)

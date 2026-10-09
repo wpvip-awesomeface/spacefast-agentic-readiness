@@ -1,0 +1,27 @@
+# Markdown for Agents: / goes through functions/home.js, which picks HTML or Markdown by Accept.
+# The ! forces it past the static index.html.
+/               /home             200!
+
+# Spacefast renders .md files as HTML pages, so raw Markdown lives in /raw/*.txt and these
+# rewrites serve it at the .md URLs agents expect.
+/index.md                                        /raw/index.txt   200!
+/auth.md                                         /raw/auth.txt    200!
+/docs/api                                        /raw/api.txt     200!
+/.well-known/agent-skills/acme-guides/SKILL.md   /raw/skill.txt   200!
+
+# Live MCP handshake at the well-known path (GET = server card, POST = MCP).
+/.well-known/mcp  /mcp-manifest  200!
+
+# Read-only JSON API. /api/v1 is current; the unversioned paths are aliases of v1.
+/api            /api/index.json   200
+/api/           /api/index.json   200
+/api/v1         /api/index.json   200
+/api/v1/        /api/index.json   200
+/api/guides     /api/guides.json  200
+/api/v1/guides  /api/guides.json  200
+/api/health     /api/health.json  200
+/api/v1/health  /api/health.json  200
+/api/v1/openapi.json /api/openapi.json 200
+
+# Never add a "/* ... 404" rule here: on Spacefast it shadows function routes like /mcp.
+# Unknown paths already get agent-friendly 404s from functions/[...rest].js.

@@ -1,0 +1,47 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Acme Guides",
+    "identifier": "did:web:acme-guides.example"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:acme-guides.example:docs:site",
+      "displayName": "Acme Guides (Markdown)",
+      "type": "text/markdown",
+      "url": "https://acme-guides.example/index.md",
+      "representativeQueries": [
+        "how do I back up my laptop",
+        "how to write a good README",
+        "how to set up two-factor authentication"
+      ]
+    },
+    {
+      "identifier": "urn:air:acme-guides.example:api:rest",
+      "displayName": "Acme Guides API",
+      "type": "application/vnd.oai.openapi+json",
+      "url": "https://acme-guides.example/api/openapi.json",
+      "representativeQueries": [
+        "list every guide as JSON"
+      ]
+    },
+    {
+      "identifier": "urn:air:acme-guides.example:mcp:server",
+      "displayName": "Acme Guides MCP server",
+      "type": "application/json",
+      "url": "https://acme-guides.example/.well-known/mcp/server-card.json",
+      "representativeQueries": [
+        "fetch one guide with its steps"
+      ]
+    },
+    {
+      "identifier": "urn:air:acme-guides.example:skill:acme-guides",
+      "displayName": "Acme Guides agent skill",
+      "type": "text/markdown",
+      "url": "https://acme-guides.example/.well-known/agent-skills/acme-guides/SKILL.md",
+      "representativeQueries": [
+        "use Acme Guides from a coding agent"
+      ]
+    }
+  ]
+}

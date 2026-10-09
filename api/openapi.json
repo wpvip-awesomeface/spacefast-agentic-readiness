@@ -1,0 +1,363 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Acme Guides API",
+    "version": "1.0.0",
+    "description": "Read-only JSON API for Acme Guides. No authentication. Versioning: the API is versioned in the URL path (/api/v1); unversioned /api/* paths are aliases of v1. Breaking changes ship under a new path (/api/v2) and v1 keeps working for at least 90 days, announced with Deprecation and Sunset headers. Errors use RFC 9457 problem details (application/problem+json).",
+    "x-api-lifecycle": {
+      "status": "stable",
+      "versioning": "url-path",
+      "currentVersion": "v1",
+      "deprecationPolicy": "https://acme-guides.example/docs/api#versioning"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://acme-guides.example"
+    }
+  ],
+  "paths": {
+    "/api/v1": {
+      "get": {
+        "operationId": "getApiIndex",
+        "summary": "List the API endpoints",
+        "description": "List the API endpoints. Also served at /api.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "RateLimit-Policy": {
+                "description": "Rate limit policy (draft-ietf-httpapi-ratelimit-headers), per client IP.",
+                "schema": {
+                  "type": "string"
+                },
+                "example": "\"burst\";q=20;w=1"
+              },
+              "X-RateLimit-Limit": {
+                "description": "Requests allowed per window, per client IP.",
+                "schema": {
+                  "type": "integer"
+                },
+                "example": 20
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiIndex"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No endpoint at this path.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests from this IP. Wait a few seconds and retry with backoff.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Any other error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/guides": {
+      "get": {
+        "operationId": "listGuides",
+        "summary": "List every guide with its steps",
+        "description": "List every guide with its steps. Also served at /api/guides.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "RateLimit-Policy": {
+                "description": "Rate limit policy (draft-ietf-httpapi-ratelimit-headers), per client IP.",
+                "schema": {
+                  "type": "string"
+                },
+                "example": "\"burst\";q=20;w=1"
+              },
+              "X-RateLimit-Limit": {
+                "description": "Requests allowed per window, per client IP.",
+                "schema": {
+                  "type": "integer"
+                },
+                "example": 20
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GuideList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No endpoint at this path.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests from this IP. Wait a few seconds and retry with backoff.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Any other error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/health": {
+      "get": {
+        "operationId": "getHealth",
+        "summary": "Liveness check",
+        "description": "Liveness check. Also served at /api/health.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "RateLimit-Policy": {
+                "description": "Rate limit policy (draft-ietf-httpapi-ratelimit-headers), per client IP.",
+                "schema": {
+                  "type": "string"
+                },
+                "example": "\"burst\";q=20;w=1"
+              },
+              "X-RateLimit-Limit": {
+                "description": "Requests allowed per window, per client IP.",
+                "schema": {
+                  "type": "integer"
+                },
+                "example": 20
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Health"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No endpoint at this path.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests from this IP. Wait a few seconds and retry with backoff.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Any other error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ApiIndex": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "versioning": {
+            "type": "string"
+          },
+          "endpoints": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "method": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "method",
+                "url"
+              ]
+            }
+          }
+        },
+        "required": [
+          "name",
+          "endpoints"
+        ]
+      },
+      "Guide": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "slug",
+          "title",
+          "summary",
+          "steps"
+        ]
+      },
+      "GuideList": {
+        "type": "object",
+        "properties": {
+          "guides": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Guide"
+            }
+          }
+        },
+        "required": [
+          "guides"
+        ]
+      },
+      "Health": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok"
+            ]
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "Problem": {
+        "type": "object",
+        "description": "RFC 9457 problem details, plus a machine-readable code and a resolution hint.",
+        "properties": {
+          "type": {
+            "type": "string",
+            "format": "uri"
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer"
+          },
+          "code": {
+            "type": "string",
+            "enum": [
+              "endpoint_not_found",
+              "page_not_found"
+            ]
+          },
+          "detail": {
+            "type": "string"
+          },
+          "instance": {
+            "type": "string"
+          },
+          "hint": {
+            "type": "string"
+          },
+          "links": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        },
+        "required": [
+          "type",
+          "title",
+          "status",
+          "code",
+          "detail"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Acme Guides API",
+  "description": "Read-only JSON API for Acme Guides.",
+  "version": "1.0.0",
+  "versioning": "URL path. /api/v1 is current; unversioned /api/* paths are aliases of v1.",
+  "endpoints": {
+    "guides": {
+      "method": "GET",
+      "url": "https://acme-guides.example/api/v1/guides",
+      "description": "Every guide with its steps."
+    },
+    "health": {
+      "method": "GET",
+      "url": "https://acme-guides.example/api/v1/health",
+      "description": "Liveness check."
+    },
+    "openapi": {
+      "method": "GET",
+      "url": "https://acme-guides.example/api/openapi.json",
+      "description": "OpenAPI 3.1 description of this API."
+    }
+  }
+}
